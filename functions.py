@@ -24,6 +24,8 @@ class Functions(object):
                     return
                 i = event.pos[1] // (self.settings.block_size + self.settings.block_space)
                 j = event.pos[0] // (self.settings.block_size + self.settings.block_space)
+                if i > self.settings.board_size[1] - 1 or j > self.settings.board_size[0] - 1:
+                    return
                 if (event.pos[1] > i * self.settings.block_size + (i + 1) * self.settings.block_space and
                         event.pos[0] > j * self.settings.block_size + (j + 1) * self.settings.block_space):
                     self.event_button(event, i, j)
